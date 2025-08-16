@@ -1,0 +1,179 @@
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+main {
+	display: flex;
+	width: 100%;
+	min-height: 100vh;
+}
+
+h1 {
+	font-size: 18px;
+	padding: 10px;
+}
+
+h2 {
+	font-size: 16px;
+	padding: 10px;
+}
+
+.todo {
+	background-color: #fafafa;
+	position: relative;
+	width: 15%;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+.project {
+	padding: 10px;
+	cursor: pointer;
+	display: flex;
+	justify-content: space-between;
+}
+
+.project:hover {
+	background-color: #eeeeee;
+	color: #db4f42;
+}
+
+.add-project {
+	display: flex;
+	align-items: center;
+	position: absolute;
+	bottom: 10px;
+	cursor: pointer;
+	width: 100%;
+}
+
+.add-project:hover {
+	background-color: #eeeeee;
+	color: #db4f42;
+}
+
+#plus {
+	border: none;
+	font-size: 18px;
+	cursor: pointer;
+	background-color: white;
+}
+
+.tasks {
+	padding: 20px;
+    width: 80%;
+}
+
+.task-name {
+	font-weight: bold;
+	margin-bottom: 40px;
+}
+
+.task {
+	display: flex;
+	justify-content: space-between;
+}
+
+.task-checkBox {
+	display: flex;
+	align-items: center;
+}
+
+#task-check {
+	width: 1.3em;
+	height: 1.3em;
+	background-color: white;
+	border-radius: 50%;
+	vertical-align: middle;
+	border: 1px solid #ddd;
+	appearance: none;
+	-webkit-appearance: none;
+	outline: none;
+	cursor: pointer;
+	margin-right: 5px;
+}
+
+#task-check:checked {
+	background-color: #dc4f42;
+}
+
+.task-plus {
+	display: flex;
+	align-items: center;
+}
+
+input[type='checkbox']:checked + p.strikethrough {
+	text-decoration: line-through;
+}
+
+.task-detail {
+	margin: 10px;
+	margin-left: 30px;
+}
+
+.hidden {
+	display: none;
+}
+
+.task-plus:hover {
+	color: #db4f42;
+	cursor: pointer;
+}
+
+.project-form {
+	position: absolute;
+	bottom: 10px;
+	padding: 20px;
+}
+
+.add-project-button,
+.cancel-project-button {
+	padding: 3px;
+	margin-top: 5px;
+	cursor: pointer;
+}
+
+.add-project-button {
+	background-color: #db4f42;
+	color: white;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    background-color: #FAFAFA
+}
+
+#task_name,
+#task_description,
+#task_date,
+#task_priority {
+    padding: 10px;
+    margin: 10px;
+}
+
+.submit-buttons {
+    display: flex;
+    justify-content: flex-end;
+    padding: 20px;
+}
+
+.submit-buttons button {
+    margin: 5px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.add-task-button {
+    background-color: #db4f42;
+    color: white;
+    border: none;
+    transition: 0.4s;
+}
+
+.add-task-button:hover {
+    background-color: #bd3124;
+}
