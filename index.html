@@ -11,21 +11,28 @@
 			<div class="todo">
 				<h1>Awesome Todo</h1>
 				<h2>Projects</h2>
-				<div class="project">
-					<p>dsa</p>
-					<p>x</p>
+				<div class="project-items">
+					<div class="project">
+						<p>dsa</p>
+						<p class="project-completed">x</p>
+					</div>
+					<div class="project">
+						<p>1111111111</p>
+						<p class="project-completed">x</p>
+					</div>
 				</div>
-				<div class="project">
-					<p>1111111111</p>
-					<p>x</p>
-				</div>
-				<div class="add-project hidden">
-					<button id="plus">+</button>
+				<div class="add-project">
+					<button id="project-plus">+</button>
 					<p>Add project</p>
 				</div>
-				<div class="project-form">
-					<form>
-						<input type="text" placeholder="New Project Name..." />
+				<div class="project-form hidden">
+					<form class="project_form">
+						<input
+							type="text"
+							placeholder="New Project Name..."
+							id="project_name"
+							name="project_name"
+						/>
 						<div>
 							<button type="submit" class="add-project-button">Add</button>
 							<button type="submit" class="cancel-project-button">
@@ -40,37 +47,49 @@
 					<p>dsa</p>
 				</div>
 				<div class="task">
-                    <div class="task-checkBox">
-                        <input type="checkbox" name="task-check" id="task-check" />
-                        <p class="strikethrough">sssssss</p>
-                    </div>
-                    <p>x</p>
+					<div class="task-checkBox">
+						<input type="checkbox" name="task-check" id="task-check" />
+						<p class="strikethrough">sssssss</p>
+					</div>
+					<p class="task-completed">x</p>
 				</div>
 				<div class="task-detail">
 					<p>dddds</p>
 					<p>2025-08-23</p>
 					<p>high</p>
 				</div>
-				<div class="task-plus hidden">
-					<button id="plus">+</button>
+				<div class="task-plus">
+					<button id="task-plus">+</button>
 					<p>Add Task</p>
 				</div>
-                <form>
-                    <input type="text" placeholder="Task name" id="task_name" name="Task Name" required>
-                    <input type="text" placeholder="Description" id="task_description" name="Task Description" required>
-                    <label for="task_date">Due Date</label>
-                    <input type="date" id="task_date" name="Task Date" required>
-                    <label for="task_priority">Priority</label>
-                    <select name="Task Priority" id="task_priority" required>
-                        <option value="low">Low</option>
-                        <option value="medium">Medium</option>
-                        <option value="high">High</option>
-                    </select>
-                    <div class="submit-buttons">
-                        <button type="submit" class="add-task-button">Add Task</button>
-                        <button type="submit">Cancel</button>
-                    </div>
-                </form>
+				<form>
+					<input
+						type="text"
+						placeholder="Task name"
+						id="task_name"
+						name="Task Name"
+						required
+					/>
+					<input
+						type="text"
+						placeholder="Description"
+						id="task_description"
+						name="Task Description"
+						required
+					/>
+					<label for="task_date">Due Date</label>
+					<input type="date" id="task_date" name="Task Date" required />
+					<label for="task_priority">Priority</label>
+					<select name="Task Priority" id="task_priority" required>
+						<option value="low">Low</option>
+						<option value="medium">Medium</option>
+						<option value="high">High</option>
+					</select>
+					<div class="submit-buttons">
+						<button type="submit" class="add-task-button">Add Task</button>
+						<button type="submit">Cancel</button>
+					</div>
+				</form>
 			</div>
 		</main>
 		<script src="script.js"></script>
