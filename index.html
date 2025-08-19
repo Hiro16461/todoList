@@ -46,17 +46,26 @@
 				<div class="task-name">
 					<p>dsa</p>
 				</div>
-				<div class="task">
-					<div class="task-checkBox">
-						<input type="checkbox" name="task-check" id="task-check" />
-						<p class="strikethrough">sssssss</p>
+				<div class="tasks-name">
+					<div class="task">
+						<div class="task-checkBox">
+							<input type="checkbox" name="task-check" id="task-check" />
+							<p class="strikethrough">sssssss</p>
+						</div>
+						<p class="task-completed">x</p>
 					</div>
-					<p class="task-completed">x</p>
-				</div>
-				<div class="task-detail">
-					<p>dddds</p>
-					<p>2025-08-23</p>
-					<p>high</p>
+					<div class="task-detail">
+						<p>dddds</p>
+						<p>2025-08-23</p>
+						<p>high</p>
+					</div>
+					<div class="task">
+						<div class="task-checkBox">
+							<input type="checkbox" name="task-check" id="task-check" />
+							<p class="strikethrough">sssssss</p>
+						</div>
+						<p class="task-completed">x</p>
+					</div>
 				</div>
 				<div class="task-plus">
 					<button id="task-plus">+</button>
@@ -67,18 +76,18 @@
 						type="text"
 						placeholder="Task name"
 						id="task_name"
-						name="Task Name"
+						name="task_name"
 						required
 					/>
 					<input
 						type="text"
 						placeholder="Description"
 						id="task_description"
-						name="Task Description"
+						name="task_description"
 						required
 					/>
 					<label for="task_date">Due Date</label>
-					<input type="date" id="task_date" name="Task Date" required />
+					<input type="date" id="task_date" name="task_date" required />
 					<label for="task_priority">Priority</label>
 					<select name="Task Priority" id="task_priority" required>
 						<option value="low">Low</option>
@@ -87,7 +96,7 @@
 					</select>
 					<div class="submit-buttons">
 						<button type="submit" class="add-task-button">Add Task</button>
-						<button type="submit">Cancel</button>
+						<button type="button" class="add-task-cancel">Cancel</button>
 					</div>
 				</form>
 			</div>
