@@ -1,12 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Todo List</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <script src="script.js"></script>
-</body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Todo List</title>
+		<link rel="stylesheet" href="style.css" />
+	</head>
+	<body>
+		<div class="container">
+			<header>
+				<img src="./imgs/todo.png" alt="todo" />
+				<h1>Todo List</h1>
+			</header>
+			<div class="sidebar">
+				<div class="sidebar_projects">
+					<h2>Projects</h2>
+					<img src="./imgs/edit.png" alt="edit" class="project_edit" />
+				</div>
+				<div class="todoLists">
+					<div class="todoList">
+						<img src="./imgs/todolist.png" alt="todo_list" />
+						<p>lq</p>
+					</div>
+					<div class="todoList_imgs">
+						<img src="./imgs/edit.png" alt="edit" />
+						<img src="./imgs/trash.png" alt="trash" />
+					</div>
+				</div>
+			</div>
+			<main>
+				<form id="project_form" class="hidden">
+					<input
+						type="text"
+						name="project"
+						id="project"
+						placeholder="project name"
+					/>
+					<button type="submit">OK</button>
+					<button type="submit">Cancel</button>
+				</form>
+				<div class="projectName">
+					<p>l1</p>
+					<p>+</p>
+				</div>
+				<div class="task">
+					<div>
+						<p>11111111111</p>
+						<p>123</p>
+					</div>
+					<div>
+						<p>11-11-11111</p>
+					</div>
+					<div>
+						<p>low</p>
+					</div>
+					<div class="task_icons">
+						<img src="./imgs/edit.png" alt="edit" />
+						<img src="./imgs/trash.png" alt="trash" />
+					</div>
+				</div>
+				<div class="task">
+					<div>
+						<p>11111111111</p>
+						<p>123</p>
+					</div>
+					<div>
+						<p>11-11-11111</p>
+					</div>
+					<div>
+						<p>low</p>
+					</div>
+					<div class="task_icons">
+						<img src="./imgs/edit.png" alt="edit" />
+						<img src="./imgs/trash.png" alt="trash" />
+					</div>
+				</div>
+				<p class="add_task">+Add Task</p>
+				<form class="task_form hidden">
+					<input
+						type="text"
+						name="title"
+						id="title"
+						placeholder="Title"
+						required
+					/>
+					<input
+						type="text"
+						name="description"
+						id="description"
+						placeholder="Description"
+						required
+					/>
+					<label for="priority">
+						<select name="priority" id="priority">
+							<option value="high">High</option>
+							<option value="medium">Medium</option>
+							<option value="low">Low</option>
+						</select>
+					</label>
+					<label for="date">Due Date</label>
+					<input type="date" type="date" id="date" name="date" />
+					<button type="submit">OK</button>
+					<button type="submit">Cancel</button>
+				</form>
+			</main>
+			<footer>
+				<p>Copyright © Hiro for the Odin Project</p>
+			</footer>
+		</div>
+		<script src="script.js"></script>
+	</body>
 </html>
