@@ -2,12 +2,25 @@ const projectEditBtn = document.querySelector('.project_edit');
 const projectForm = document.querySelector('#project_form');
 const projectCancelBtn = document.querySelector('.project_cancel');
 const projectToggleBtn = document.querySelector('.project_toggle');
+const taskForm = document.querySelector('.task_form');
+const addTask = document.querySelector('.add_task');
+const taskCancelBtn = document.querySelector('.task_cancel');
 
-class Todo {
-	constructor(id, projectName, todoName) {
-		this.id = id;
-		this.projectName = projectName;
-		this.todoName = todoName;
+class TodoList {
+	constructor() {
+		this.todos = [];
+	}
+
+	addTodo(task) {
+		this.todos.push(task);
+	}
+
+	removeTodo(task) {
+		this.todos = this.todos.filter((todo) => todo !== task);
+	}
+
+	getList() {
+		return this.todos;
 	}
 }
 
@@ -28,6 +41,23 @@ projectCancelBtn.addEventListener('click', (e) => {
 
 projectToggleBtn.addEventListener('click', (e) => {
 	toggleTask();
+});
+
+addTask.addEventListener('click', (e) => {
+	taskForm.classList.toggle('hidden');
+});
+
+taskForm.addEventListener('submit', (e) => {
+	e.preventDefault();
+	const title = document.querySelector('#title').value;
+	const description = document.querySelector('#description').value;
+	const priority = document.querySelector('#priority').value;
+	const dueDate = document.querySelector('#date').valueAsDate;
+	console.log(title, description, priority, dueDate);
+});
+
+taskCancelBtn.addEventListener('click', (e) => {
+	taskCancelFunc();
 });
 
 function toggleTask() {
@@ -66,4 +96,9 @@ function projectAddFunc() {
 function projectCancelFunc() {
 	projectForm.reset();
 	projectForm.classList.add('hidden');
+}
+
+function taskCancelFunc() {
+	taskForm.reset();
+	taskForm.classList.add('hidden');
 }

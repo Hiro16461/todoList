@@ -109,16 +109,16 @@
 						required
 					/>
 					<label for="priority">
-						<select name="priority" id="priority">
+						<select name="priority" id="priority" required>
 							<option value="high">High</option>
 							<option value="medium">Medium</option>
 							<option value="low">Low</option>
 						</select>
 					</label>
 					<label for="date">Due Date</label>
-					<input type="date" type="date" id="date" name="date" />
+					<input type="date" type="date" id="date" name="date" required/>
 					<button type="submit">OK</button>
-					<button type="submit">Cancel</button>
+					<button type="button" class="task_cancel">Cancel</button>
 				</form>
 			</main>
 			<footer>
