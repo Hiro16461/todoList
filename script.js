@@ -6,13 +6,14 @@ const taskForm = document.querySelector('.task_form');
 const addTask = document.querySelector('.add_task');
 const taskCancelBtn = document.querySelector('.task_cancel');
 
+
 class TodoList {
 	constructor() {
 		this.todos = [];
 	}
 
-	addTodo(task) {
-		this.todos.push(task);
+	addTodo(title, description, priority, dueDate) {
+		this.todos.push({ title, description, priority, dueDate });
 	}
 
 	removeTodo(task) {
@@ -23,6 +24,8 @@ class TodoList {
 		return this.todos;
 	}
 }
+
+const todoList = new TodoList();
 
 projectEditBtn.addEventListener('click', (e) => {
 	e.preventDefault();
@@ -49,16 +52,62 @@ addTask.addEventListener('click', (e) => {
 
 taskForm.addEventListener('submit', (e) => {
 	e.preventDefault();
-	const title = document.querySelector('#title').value;
-	const description = document.querySelector('#description').value;
-	const priority = document.querySelector('#priority').value;
-	const dueDate = document.querySelector('#date').valueAsDate;
-	console.log(title, description, priority, dueDate);
+
+	addTodo();
+	createTask();
+
+	taskCancelFunc();
 });
 
 taskCancelBtn.addEventListener('click', (e) => {
 	taskCancelFunc();
 });
+
+function createTask() {
+	const tasks = document.querySelector('.tasks');
+	const taskDiv = document.createElement('div');
+	const titleAndDescriptionDiv = document.createElement('div');
+	const titlePara = document.createElement('p');
+	const descriptionPara = document.createElement('p');
+	const dueDateDiv = document.createElement('div');
+	const dueDatePara = document.createElement('p');
+	const priorityDiv = document.createElement('div');
+	const priorityPara = document.createElement('p');
+	const taskIcons = document.createElement('div');
+	const editBtn = document.createElement('img');
+	const trashBtn = document.createElement('img');
+
+	titlePara.classList.add('title');
+	descriptionPara.classList.add('description');
+	titleAndDescriptionDiv.appendChild(titlePara);
+	titleAndDescriptionDiv.appendChild(descriptionPara);
+
+	taskDiv.classList.add('task');
+	taskDiv.appendChild(titleAndDescriptionDiv);
+	tasks.appendChild(taskDiv);
+
+	dueDateDiv.appendChild(dueDatePara);
+	taskDiv.appendChild(dueDateDiv);
+
+	priorityDiv.appendChild(priorityPara);
+	taskDiv.appendChild(priorityDiv);
+
+	taskIcons.classList.add('task_icons');
+	editBtn.src = './imgs/edit.png';
+	trashBtn.src = './imgs/trash.png';
+
+	taskIcons.appendChild(editBtn);
+	taskIcons.appendChild(trashBtn);
+
+	taskDiv.appendChild(taskIcons);
+
+	todoList.todos.forEach((todo) => {
+		titlePara.textContent = `${todo.title}`;
+		descriptionPara.textContent = `${todo.description}`;
+		dueDatePara.textContent = `${todo.dueDate}`;
+		priorityPara.textContent = `${todo.priority}`;
+	});
+}
 
 function toggleTask() {
 	const tasks = document.querySelectorAll('.task');
@@ -89,8 +138,7 @@ function projectAddFunc() {
 	todoList.appendChild(todoListImages);
 	todoLists.appendChild(todoList);
 
-	projectForm.reset();
-	projectForm.classList.add('hidden');
+	projectCancelFunc();
 }
 
 function projectCancelFunc() {
@@ -101,4 +149,13 @@ function projectCancelFunc() {
 function taskCancelFunc() {
 	taskForm.reset();
 	taskForm.classList.add('hidden');
+}
+
+function addTodo() {
+	let title = document.querySelector('#title').value;
+	let description = document.querySelector('#description').value;
+	let priority = document.querySelector('#priority').value;
+	let dueDate = document.querySelector('#date').valueAsDate;
+
+	todoList.addTodo(title, description, priority, dueDate);
 }
