@@ -5,7 +5,8 @@ const projectToggleBtn = document.querySelector('.project_toggle');
 const taskForm = document.querySelector('.task_form');
 const addTask = document.querySelector('.add_task');
 const taskCancelBtn = document.querySelector('.task_cancel');
-
+const todoListTrash = document.querySelector('.todoList_trash');
+const todoLists = document.querySelector('.todoLists');
 
 class TodoList {
 	constructor() {
@@ -28,8 +29,6 @@ class TodoList {
 const todoList = new TodoList();
 
 projectEditBtn.addEventListener('click', (e) => {
-	e.preventDefault();
-	e.stopPropagation();
 	projectForm.classList.toggle('hidden');
 });
 
@@ -61,6 +60,13 @@ taskForm.addEventListener('submit', (e) => {
 
 taskCancelBtn.addEventListener('click', (e) => {
 	taskCancelFunc();
+});
+
+todoLists.addEventListener('click', (e) => {
+	if (e.target.classList.contains('todoList_trash')) {
+		const item = e.target.parentElement.parentElement;
+		todoLists.removeChild(item);
+	}
 });
 
 function createTask() {
@@ -128,6 +134,8 @@ function projectAddFunc() {
 	todoImageList.src = './imgs/todolist.png';
 	todoImageEdit.src = './imgs/edit.png';
 	todoImageTrash.src = './imgs/trash.png';
+	todoImageEdit.classList.add('todoList_edit');
+	todoImageTrash.classList.add('todoList_trash');
 	todoListImages.classList.add('todoList_imgs');
 	todoListImages.appendChild(todoImageEdit);
 	todoListImages.appendChild(todoImageTrash);
