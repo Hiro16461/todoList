@@ -7,6 +7,7 @@ const addTask = document.querySelector('.add_task');
 const taskCancelBtn = document.querySelector('.task_cancel');
 const todoListTrash = document.querySelector('.todoList_trash');
 const todoLists = document.querySelector('.todoLists');
+const tasks = document.querySelector('.tasks');
 
 class TodoList {
 	constructor() {
@@ -34,6 +35,7 @@ projectEditBtn.addEventListener('click', (e) => {
 
 projectForm.addEventListener('submit', (e) => {
 	e.preventDefault();
+
 	projectAddFunc();
 });
 
@@ -66,6 +68,17 @@ todoLists.addEventListener('click', (e) => {
 	if (e.target.classList.contains('todoList_trash')) {
 		const item = e.target.parentElement.parentElement;
 		todoLists.removeChild(item);
+	} else if (e.target.classList.contains('todoList_edit')) {
+		projectForm.classList.remove('hidden');
+		const projectTitle =
+			e.target.parentElement.parentElement.children[1].innerText;
+		projectForm[0].value = projectTitle;
+	}
+});
+
+tasks.addEventListener('click', (e) => {
+	if (e.target.classList.contains('trash_btn')) {
+		e.target.parentElement.parentElement.remove();
 	}
 });
 
@@ -100,7 +113,9 @@ function createTask() {
 
 	taskIcons.classList.add('task_icons');
 	editBtn.src = './imgs/edit.png';
+	editBtn.classList.add('edit_btn')
 	trashBtn.src = './imgs/trash.png';
+	trashBtn.classList.add('trash_btn');
 
 	taskIcons.appendChild(editBtn);
 	taskIcons.appendChild(trashBtn);
